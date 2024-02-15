@@ -1,4 +1,8 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using JwtProject.Interfaces;
+using JwtProject.Models;
+using JwtProject.Request_Models;
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 
 // For more information on enabling Web API for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
 
@@ -6,38 +10,33 @@ namespace JwtProject.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
+    
     public class AuthController : ControllerBase
     {
-        // GET: api/<AuthController>
-        [HttpGet]
-        public IEnumerable<string> Get()
+        private readonly IAuthService _authService;
+        public AuthController(IAuthService authService)
         {
-            return new string[] { "value1", "value2" };
+            _authService = authService; 
         }
-
-        // GET api/<AuthController>/5
-        [HttpGet("{id}")]
-        public string Get(int id)
-        {
-            return "value";
-        }
+      
 
         // POST api/<AuthController>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public string Login ([FromBody] LoginRequest Logindata)
         {
+            var res = _authService.Login(Logindata);
+            return res;
         }
 
-        // PUT api/<AuthController>/5
-        [HttpPut("{id}")]
-        public void Put(int id, [FromBody] string value)
+       
+        [HttpPost("AddUser")]
+        public User AddUser( [FromBody] User value)
         {
+            var user = _authService.AddUser(value);
+            return user;
         }
 
-        // DELETE api/<AuthController>/5
-        [HttpDelete("{id}")]
-        public void Delete(int id)
-        {
-        }
+     
+      
     }
 }

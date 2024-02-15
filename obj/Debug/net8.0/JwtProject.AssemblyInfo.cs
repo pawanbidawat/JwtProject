@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("JwtProject")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+bb5347dc272e25d5e1a2505a7a8b6a5d460066b4")]
 [assembly: System.Reflection.AssemblyProductAttribute("JwtProject")]
 [assembly: System.Reflection.AssemblyTitleAttribute("JwtProject")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]
